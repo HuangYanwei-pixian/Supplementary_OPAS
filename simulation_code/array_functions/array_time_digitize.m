@@ -108,7 +108,7 @@ if show_delay == 2 && mopaus.time_delay_digitized == 1
     ylim([-0.5*mopaus.d_num*mopaus.d_core, 0.5*mopaus.d_num*mopaus.d_core]);
 
     colormap(parula);
-    % clim([0, 200]);
+    % clim([0, 300]);
     colorbar;
 
     hold off
@@ -120,12 +120,6 @@ for i = 1:mopaus.bundle_num
     mopaus.time_delays_reshuf(i) = mopaus.time_delays(mopaus.order_spi(i));
 end
 mopaus.time_delays = mopaus.time_delays_reshuf;
-
-% Array calibration if requested
-if mopaus.array_cali_enable == 1
-    fprintf('Array calibration enabled.\n');
-    [mopaus] = array_calibration(mopaus);
-end
 
 mopaus.time_delays_ns = mopaus.time_delays*1e9; 
 
