@@ -18,7 +18,7 @@ if mopaus.helical_wavefront_enable == 1
         end
 
         % Implement time delay
-        mopaus.time_delays(i) = mopaus.time_delays(i) + (mopaus.bundle_coord_angle(i)*mopaus.tpl_charge/(2*pi))/mopaus.source_f0; 
+        mopaus.time_delays(i) = mopaus.time_delays(i) - (mopaus.bundle_coord_angle(i)*mopaus.tpl_charge/(2*pi))/mopaus.source_f0; 
     end 
 end
 
