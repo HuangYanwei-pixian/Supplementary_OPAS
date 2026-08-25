@@ -17,11 +17,11 @@ addpath('array_functions'); % supporting functions of MOPAUS
 %% Define parameters 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ultrasound parameters
-c0              = 1480;     % speed constant [m/s] 
-mopaus.source_f0       = 27e6;                  % ultrasound center frequency [Hz]. 61-core: 5~27
-mopaus.source_amp      = 2e6;                   % initial source pressure (for simulation only) [Pa]
-mopaus.source_cycles   = 1;                     % number of toneburst cycles (only one cycle in laser-induced ultrasound)
-mopaus.speed = c0;                              % ultrasound speed [m/s] 
+c0                     = 1480;                  % speed constant [m/s] 
+mopaus.source_f0       = 13e6;                  % ultrasound center frequency [Hz]. 61-core tuning range: 5~27
+mopaus.source_amp      = 1e6;                   % initial source pressure [Pa]
+mopaus.source_cycles   = 1;                     % number of toneburst cycles 
+mopaus.speed           = c0;                    % ultrasound speed [m/s] 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Fiber bundle array parameters
@@ -38,7 +38,7 @@ mopaus.source_deflect_ele  = 0;                 % elevation deflection angle (ax
 
 % helical wavefront
 mopaus.helical_wavefront_enable = 0;      % set if helical wavefront is enabled, 1 for valid
-mopaus.tpl_charge = 3;                    % Topological charge
+mopaus.tpl_charge = -3;                    % Topological charge
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % K-wave simulation parameters
@@ -69,9 +69,6 @@ cfl             = 0.2;      % CFL number
 source_x_offset = 20;       % grid points to offset the source (invalid)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Array calibration
-mopaus.array_cali_enable = 0;     % set if array calibration is enabled, 1 for valid
-
 % Time step digitization
 mopaus.time_delay_digitized = 1;   % set if the time delay should be digitized, 1 for valid
 mopaus.time_step = 2;      % minimum time step (unit: ns), depending on the system frequency of FPGA
@@ -82,7 +79,6 @@ mopaus.time_step = 2;      % minimum time step (unit: ns), depending on the syst
 
 % Phase synthesis
 [mopaus] = array_focusing_deflection(mopaus); % Beam focusing and deflection
-[mopaus] = array_helical_wf(mopaus); % Helical wavefron
 
 % Time delay digitization
 [mopaus] = array_time_digitize(mopaus, 2);
