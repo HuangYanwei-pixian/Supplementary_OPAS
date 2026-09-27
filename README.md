@@ -1,2 +1,2 @@
 # Supplementary_OPAS
-Open source code and results for the manuscript titled 'A two-dimensional miniaturized all-optical phased-array ultrasound source with agile beamforming and frequency tuning'. 
+Open source code and results for the manuscript titled 'Optically programmed acoustic field synthesis at an electrically passive aperture'. 
