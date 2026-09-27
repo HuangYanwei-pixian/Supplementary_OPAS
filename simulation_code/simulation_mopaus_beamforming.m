@@ -1,7 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % MATLAB code for MOPAUS beamforming simulation and visualization
-% For manuscript titled 'A two-dimensional miniaturized all-optical 
-% phased-array ultrasound source with agile beamforming and frequency tuning'
+% For manuscript titled 'Optically programmed acoustic field synthesis at an electrically passive aperture'
 % 
 % Requirement: k-Wave toolbox for the time-domain simulation of acoustic wave fields.
 % 
