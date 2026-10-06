@@ -236,7 +236,7 @@ The main computation is:
 6. Propagate pressure using `kspaceFirstOrder3D` on the selected CPU/GPU path.
 7. Extract pressure fields/profiles and, in helical mode, peak-arrival times; display and save figures.
 
-6. Current implementation notes and manuscript reproduction
+## 6. Current implementation notes and manuscript reproduction
 
 The following behaviors apply to the documented source revision:
 
