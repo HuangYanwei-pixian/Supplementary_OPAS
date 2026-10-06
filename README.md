@@ -250,7 +250,7 @@ For the same physical beamforming configuration, numerically extracted quantitie
 
 An exact per-panel reproduction configuration has not yet been packaged in this repository. The two-beam example illustrates the programming method and is not an experimental-data reconstruction of Fig. 6.
 
-The mathematical formulation and numerical-simulation description are provided in the manuscript Methods subsections **“Fiber-bundle array design and geometry”** and **“Numerical simulation of the acoustic field,”** and Supplementary Note 1, particularly **Section 1.1, “Beamforming geometry and delay synthesis,”** and **Section 1.4, “Numerical simulation of the ultrasound phased array.”**
+The mathematical formulation and numerical-simulation description are provided in the manuscript Methods subsections **“Fiber-bundle array design and geometry”** and **“Numerical simulation of the acoustic field,”** and **Supplementary Note 1: Geometry and simulation of the fiber bundle-based acoustic probe**, particularly **Section 1.1, “Beamforming geometry and delay synthesis,”** and **Section 1.4, “Numerical simulation of the ultrasound phased array.”**
 
 ## 7. License and contact
 
