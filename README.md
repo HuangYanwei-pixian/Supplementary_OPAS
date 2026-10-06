@@ -257,3 +257,5 @@ The mathematical formulation and numerical-simulation description are provided i
 The repository source code is distributed under the **Apache License, Version 2.0**; see [LICENSE](LICENSE). MATLAB and k-Wave are separate dependencies subject to their own licensing terms.
 
 Contact: Yanwei Huang — <h.yanwei@wustl.edu>.
+
+Last update: 06/October/2026
