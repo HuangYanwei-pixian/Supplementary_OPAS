@@ -62,7 +62,6 @@ opas.tpl_charge = -3;                    % Topological charge
 %   1: CPU computing 
 %   2: GPU computing 
 model           = 2;  
-parallel.gpu.enableCUDAForwardCompatibility(true)
 
 % Medium parameters
 medium.density  = 1000;     % medium density [kg/m^3]
@@ -93,7 +92,7 @@ opas.time_step = 2;      % minimum time step (unit: ns), depending on the system
 % Generate a fiber bundle array
 [opas] = array_fiber_bundle_coordinates(opas, 1); 
 
-% Phase synthesis
+% Time delay synthesis
 [opas] = array_focusing_deflection(opas); % Beam focusing, Bessel-like wavefront generation, and deflection
 
 % Time delay digitization
@@ -217,6 +216,10 @@ sensor.mask(:, Ny/2, :) = 1;
 % record the pressure
 sensor.record = {'p_max'};
 
+% check GPU
+if model == 2;  
+    parallel.gpu.enableCUDAForwardCompatibility(true)
+end
 
 %% SIMULATION AND VISUALIZATION
 % set input options
