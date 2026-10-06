@@ -36,7 +36,7 @@ The script uses MATLAB implementations of `kspaceFirstOrder3D` and `kWaveArray`.
 | GPU | NVIDIA GeForce RTX 5060 |
 | Operating system | Windows 11 Pro, version 25H2 |
 
-No custom OPAS controller, laser, optical fiber probe, FPGA board, or ultrasound acquisition hardware is required to run the simulations. A GPU is optional when the CPU path is used. The workstation above is a tested configuration, not a measured minimum requirement. Memory requirements increase with grid size, source frequency, spatial sampling density, and recorded time-series size.
+A GPU is optional when the CPU path is used. The workstation above is a tested configuration, not a measured minimum requirement. Memory requirements increase with grid size, source frequency, spatial sampling density, and recorded time-series size.
 
 ## 2. Installation guide
 
@@ -123,7 +123,7 @@ Pressure fields are based on `sensor.record = {'p_max'}`: they represent **peak 
 
 ### Expected run time
 
-The reported reference calculation time on the workstation in Section 1 is **20.067 s**, as printed by k-Wave under `total computation time` for the reference demo. This is the k-Wave calculation time, not an end-to-end timing of the entire script. MATLAB startup, array/source construction, GPU initialization or first-use compatibility compilation, plotting, and figure saving add overhead. Allow extra time for the first GPU run. CPU execution and larger simulations may take substantially longer; a CPU benchmark for this exact default configuration has not been established.
+The reported reference calculation time on the workstation in Section 1 is **20.067 s**, as printed by k-Wave under `total computation time` for the reference demo. This is the k-Wave calculation time, not an end-to-end timing of the entire script. MATLAB startup, array/source construction, GPU initialization or first-use compatibility compilation, plotting, and figure saving add overhead. Allow extra time for the first GPU run. CPU execution and larger simulations may take substantially longer.
 
 ## 4. Parameter settings and instructions for use
 
@@ -236,7 +236,7 @@ The main computation is:
 6. Propagate pressure using `kspaceFirstOrder3D` on the selected CPU/GPU path.
 7. Extract pressure fields/profiles and, in helical mode, peak-arrival times; display and save figures.
 
-## 6. Current implementation notes and manuscript reproduction
+6. Current implementation notes and manuscript reproduction
 
 The following behaviors apply to the documented source revision:
 
@@ -244,7 +244,11 @@ The following behaviors apply to the documented source revision:
 - `addDiscElement` receives `[0,0,0]` as its axis point, so the finite discs point toward the computational-grid origin rather than all having parallel normals. This affects the simulated source geometry.
 - The ordinary sensor uses index `Ny/2`; for the even-sized k-Wave grid this is one grid spacing away from y=0. Its profiles therefore represent that sampled plane.
 
-The default demonstration uses 13 MHz. Supplementary Fig. S2 describes 27 MHz simulations. An exact per-panel reproduction configuration has not yet been packaged in this repository; changing the default frequency alone is not a verified reproduction of every quantitative value in that figure. The two-beam example similarly illustrates the programming method and is not an experimental-data reconstruction of Fig. 6.
+The default demonstration uses 13 MHz, whereas Supplementary Fig. S2 uses 27 MHz. Match the source frequency, aperture geometry, and beamforming settings before making quantitative comparisons.
+
+For the same physical beamforming configuration, numerically extracted quantities such as lateral and axial full width at half maximum (FWHM) can vary with the spatial and temporal resolution of the simulation, including `ppw` and the time step controlled by `cfl`, as well as the sampling and interpolation used to extract the profiles. These quantities should be assessed for convergence as the numerical resolution is refined. Supplementary Note 1 includes both analytical estimates (Table S1) and numerical simulations (Fig. S2); the analytical estimates additionally rely on idealized aperture and excitation assumptions. Numerical resolution can contribute to quantitative differences, but its contribution to a particular discrepancy must be established by a convergence check.
+
+An exact per-panel reproduction configuration has not yet been packaged in this repository. The two-beam example illustrates the programming method and is not an experimental-data reconstruction of Fig. 6.
 
 The mathematical formulation and numerical-simulation description are provided in the manuscript Methods subsections **“Fiber-bundle array design and geometry”** and **“Numerical simulation of the acoustic field,”** and Supplementary Note 1, particularly **Section 1.1, “Beamforming geometry and delay synthesis,”** and **Section 1.4, “Numerical simulation of the ultrasound phased array.”**
 
